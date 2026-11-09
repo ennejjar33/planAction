@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div><h1 id="conteur">0</h1></div>
+    <button id="Augmenterbtn">Augmenter</button>
+    <button id="Diminuerbtn">Diminuer</button>
+    <button id="Resetbtn">Réinitialiser</button>
+</body>
+
+<script>
+let Augmenterbtn = document.getElementById("Augmenterbtn");
+let Diminuerbtn = document.getElementById("Diminuerbtn");
+let Resetbtn = document.getElementById("Resetbtn");
+
+
+Augmenterbtn.addEventListener("click", function() {
+    let conteur = document.getElementById("conteur");
+    let conteurValue = parseInt(conteur.textContent);  // parseInt convertit le texte en nombre (0111 VS 0 1 2 3 ...)
+    if (conteurValue < 10) {
+        conteur.textContent = conteurValue + 1;
+    }else if (conteurValue === 10) {
+        conteur.style.color = "red";
+    } else {
+        conteur.style.color = "black";
+    }
+});
+
+Diminuerbtn.addEventListener("click", function() {
+    let conteur = document.getElementById("conteur");
+    let conteurValue = parseInt(conteur.textContent);
+    if (conteurValue > 0) {
+        conteur.textContent = conteurValue - 1;
+    }
+});
+
+Resetbtn.addEventListener("click", function() {
+    let conteur = document.getElementById("conteur");
+    conteur.textContent = 0;
+});
+</script>
+</html>
